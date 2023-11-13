@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Registro de alumnos</title>
+</head>
+
+<body>
+    <header>
+        <h1>Registro de alumnos</h1>
+        <h6>Lleva un registro de cada alumno con su nota, promedio y puntos extras.</h6>
+    </header>
+
+    <main>
+        <section>
+            <h3>Agregar registro</h3>
+            <form>
+                <input type="text" placeholder="nombre" required>
+                <input type="text" placeholder="curso" required>
+                <div>
+                    <input type="number" placeholder="1° trimestre">
+                    <input type="number" placeholder="2° trimestre">
+                    <input type="number" placeholder="3° trimestre">
+                    <input type="number" placeholder="Pnt. Extras">
+                </div>
+                <button type="submit">Agregar</button>
+            </form>
+        </section>
+        <section>
+            <ul id="list">
+            </ul>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
