@@ -35,13 +35,14 @@ const editRegister = (id) => {
 
 const deleteRegister = () => {
     const dni = document.getElementById('dni').value
-    const id = record.find((e, i) => {
-        if (e.dni === dni) return i
-    })
+    const student = record.find(e => e.dni.includes(dni))
+    const id = record.indexOf(student)
+    console.log(id)
     record.splice(id, 1)
     setForm('')
     showRecord()
     saveRecord(record)
+    add.innerHTML = 'Agregar'
     document.getElementById('dni').removeAttribute('readonly')
     document.getElementById('delete').classList.add('notShow')
     document.getElementById('X').classList.add('notShow')
@@ -49,6 +50,7 @@ const deleteRegister = () => {
 
 const cancelEdit = () => {
     setForm('')
+    add.innerHTML = 'Agregar'
     document.getElementById('dni').removeAttribute('readonly')
     document.getElementById('delete').classList.add('notShow')
     document.getElementById('X').classList.add('notShow')
@@ -106,19 +108,24 @@ const addStudent = (event) => {
     const student = getStudent()
     const prom = promdy([Number(student.nt1), Number(student.nt2), Number(student.nt3)], Number(student.points))
     student.prom = prom
+    const id = record.findIndex(e => e.dni.includes(student.dni))
+    
     if (add.innerHTML === 'Actualizar') {
         add.innerHTML = 'Agregar'
-        const id = record.findIndex(e => e.dni.includes(student.dni))
         record[id] = student
         document.getElementById('dni').removeAttribute('readonly')
         document.getElementById('delete').classList.add('notShow')
         document.getElementById('X').classList.add('notShow')
+    }
+
+    if (id !== -1 && add.innerHTML === 'Agregar') {
+        alert('Existe un alumno con el mismo dni')
     } else {
         record.push(student)
+        showRecord()
+        setForm('')
+        saveRecord(record)
     }
-    showRecord()
-    setForm('')
-    saveRecord(record)
 }
 
 const loadRecord = () => {
