@@ -12,26 +12,50 @@
     <header>
         <h1>Registro de alumnos</h1>
         <h6>Lleva un registro de cada alumno con su nota, promedio y puntos extras.</h6>
+        
     </header>
 
     <main>
-        <section>
+        <section class="form">
             <h3>Agregar registro</h3>
-            <form>
-                <input type="text" placeholder="nombre" required>
-                <input type="text" placeholder="curso" required>
+            <form onsubmit="addStudent(event)">
+                <label>Nombre</label>
+                <input type="text" id="name" placeholder="nombre" required>
+                <label>Curso</label>
+                <input type="text" id="clase" placeholder="curso" required>
+                <label>DNI</label>
+                <input type="number" id="dni" placeholder="DNI" required>
                 <div>
-                    <input type="number" placeholder="1° trimestre">
-                    <input type="number" placeholder="2° trimestre">
-                    <input type="number" placeholder="3° trimestre">
-                    <input type="number" placeholder="Pnt. Extras">
+                    <input type="number" id="nt1" placeholder="nota 1">
+                    <input type="number" id="nt2" placeholder="nota 2">
+                    <input type="number" id="nt3" placeholder="nota 3">
                 </div>
-                <button type="submit">Agregar</button>
+                <div>
+                    <label>Puntos extra</label>
+                    <input type="number" id="points" placeholder="Pnt. Extras">
+                </div>
+                <button id="add" type="submit">Agregar</button>
+                <button id="delete" class="delete notShow" onclick="deleteRegister()">Eliminar</button>
+                <button id="X" class="notShow" onclick="cancelEdit()">Cancelar</button>
             </form>
         </section>
-        <section>
-            <ul id="list">
-            </ul>
+        <section id="table" class="tabla-con-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Curso</th>
+                        <th scope="col">DNI</th>
+                        <th scope="col">Nota 1</th>
+                        <th scope="col">Nota 2</th>
+                        <th scope="col">Nota 3</th>
+                        <th scope="col">Pnt. extra</th>
+                        <th scope="col">Nota Final</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
         </section>
     </main>
 

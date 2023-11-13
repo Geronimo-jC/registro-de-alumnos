@@ -1,27 +1,77 @@
-main{
+header {
+    text-align: center;
+}
+
+main {
     display: flex;
     justify-content: space-evenly;
 }
 
-section{
-    width: 30%;
+.form {
+    width: 20%;
 }
 
-form{
+#table {
+    height: 100dvh;
+}
+
+form {
     display: flex;
     flex-direction: column;
 }
 
-form input{
-    margin-top: 10px;
+
+form input {
     margin-bottom: 10px;
 }
 
 form div{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
 }
 
-form div input{
+form div input {
     width: 20%;
+    margin-bottom: 0px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th,
+td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Establecer scroll para la tabla */
+.tabla-con-scroll {
+    max-height: 500px;
+    /* Altura máxima de la tabla antes de que aparezca el scroll */
+    overflow-y: auto;
+    /* Agrega scroll vertical si es necesario */
+}
+
+
+.delete {
+    background: rgb(255, 125, 125);
+    color: white;
+}
+
+.notShow{
+    display: none;
+}
+
+tbody tr:hover{
+    background: rgb(218, 218, 218);
+    cursor: pointer;
 }
